@@ -43,3 +43,9 @@ class MappingViewSet(viewsets.ModelViewSet):
         mappings = PatientDoctorMapping.objects.filter(patient_id=patient_id)
         serializer = self.get_serializer(mappings, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'], url_path='doctor/(?P<doctor_id>[^/.]+)')
+    def get_patients_for_doctor(self, request, doctor_id=None):
+        mappings = PatientDoctorMapping.objects.filter(doctor_id=doctor_id)
+        serializer = self.get_serializer(mappings, many=True)
+        return Response(serializer.data)
