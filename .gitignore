@@ -3,3 +3,4 @@ whatbyte_backend/__pycache__
 core/__pycache__
 core/migrations/__pycache__
 .env
+.DS_Store
